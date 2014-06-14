@@ -1,5 +1,6 @@
 ///<reference path='../lib/DefinitelyTyped/angularjs/angular.d.ts'/>
 ///<reference path='../lib/DefinitelyTyped/jquery/jquery.d.ts'/>
+///<reference path='./controller/Controller.ts'/>
 
 module AngularTypescript {
     export class Application {
@@ -8,8 +9,26 @@ module AngularTypescript {
         }
     }
 
+    var app = angular.module("angularTypeScriptExampleApp", ['ngRoute']);
+
+    app.run(function ($rootScope) {
+        console.log("Angular Started");
+    });
+
+    app.config([
+        '$routeProvider',
+        function ($routeProvider) {
+            $routeProvider.when('/view', {
+                templateUrl: 'views/main.html',
+                controller: 'AngularTypescript.controller.Controller'
+            }).otherwise({
+                    redirectTo: '/view'
+                });
+        }
+    ]);
+
     $(document).ready(function () {
-        var module = angular.module("angularTypeScriptExampleApp", []);
+        console.log("Document Ready");
 
     });
 }
