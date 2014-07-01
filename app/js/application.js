@@ -46,8 +46,8 @@ var AngularTypescript;
     })(AngularTypescript.controller || (AngularTypescript.controller = {}));
     var controller = AngularTypescript.controller;
 })(AngularTypescript || (AngularTypescript = {}));
-///<reference path='../lib/DefinitelyTyped/angularjs/angular.d.ts'/>
-///<reference path='../lib/DefinitelyTyped/jquery/jquery.d.ts'/>
+///<reference path='../../lib/DefinitelyTyped/angularjs/angular.d.ts'/>
+///<reference path='../../lib/DefinitelyTyped/jquery/jquery.d.ts'/>
 ///<reference path='./controller/Controller.ts'/>
 var AngularTypescript;
 (function (AngularTypescript) {
@@ -84,6 +84,6 @@ var AngularTypescript;
     ]);
 
     $(document).ready(function () {
-        console.log("Document Ready");
+        console.log("Application Document Ready");
     });
 })(AngularTypescript || (AngularTypescript = {}));
