@@ -63,11 +63,13 @@
                                 <exec executable="tsc.bat">
                                     <arg line="${basedir}/src/main/AngularTypescript/Application.ts"/>
                                     <arg line="--target ES5"/>
+                                    <arg line="--removeComments"/>
                                     <arg line="--out ${basedir}/app/js/application.js"/>
                                 </exec>
                                 <exec executable="tsc.bat">
                                     <arg line="${basedir}/src/test/AngularTypescriptTest/TestSuite.ts"/>
                                     <arg line="--target ES5"/>
+                                    <arg line="--removeComments"/>
                                     <arg line="--out ${basedir}/test/spec/TestSuite.js"/>
                                 </exec>
                             </tasks>

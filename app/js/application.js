@@ -1,3 +1,4 @@
+
 var AngularTypescript;
 (function (AngularTypescript) {
     (function (controller) {
@@ -46,9 +47,6 @@ var AngularTypescript;
     })(AngularTypescript.controller || (AngularTypescript.controller = {}));
     var controller = AngularTypescript.controller;
 })(AngularTypescript || (AngularTypescript = {}));
-///<reference path='../../lib/DefinitelyTyped/angularjs/angular.d.ts'/>
-///<reference path='../../lib/DefinitelyTyped/jquery/jquery.d.ts'/>
-///<reference path='./controller/Controller.ts'/>
 var AngularTypescript;
 (function (AngularTypescript) {
     var Application = (function () {
@@ -65,11 +63,9 @@ var AngularTypescript;
     });
 
     app.controller('ViewController', [
-        '$scope',
-        function ($scope) {
+        '$scope', function ($scope) {
             return new AngularTypescript.controller.Controller($scope);
-        }
-    ]);
+        }]);
 
     app.config([
         '$routeProvider',
