@@ -11,22 +11,27 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'app/bower_components/angular/angular.js',
-      'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/bower_components/angular-cookies/angular-cookies.js',
-      'app/bower_components/angular-sanitize/angular-sanitize.js',
-      'app/bower_components/angular-route/angular-route.js',
-      'app/scripts/*.js',
-      'app/scripts/**/*.js',
+      'app/lib/angular/angular.js',
+      'app/lib/angular-mocks/angular-mocks.js',
+      'app/lib/angular-cookies/angular-cookies.js',
+      'app/lib/angular-sanitize/angular-sanitize.js',
+      'app/lib/angular-route/angular-route.js',
+      'app/lib/jquery/dist/jquery.js',
+      'app/lib/slickgrid/lib/jquery.event.drag-2.2.js',
+      'app/lib/slickgrid/slick.core.js',
+      'app/lib/slickgrid/slick.grid.js',
+      'app/js/*.js',
+      'app/js/**/*.js',
       'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      'test/spec/**/*.js',
+        'app/index.html'
     ],
 
     // list of files / patterns to exclude
     exclude: [],
 
     // web server port
-    port: 8080,
+    port: 9080,
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
@@ -50,6 +55,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: true
   });
 };

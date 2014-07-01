@@ -7,8 +7,11 @@ module AngularTypescript.controller {
     export class Controller {
 
         private grid:any;
+        private $scope:any;
 
-        constructor() {
+        constructor($scope) {
+            this.$scope = $scope;
+            $scope.title = "Example Angular Typescript Application";
             console.log("Controller");
             this.grid = this.createGrid();
         }

@@ -15,12 +15,16 @@ module AngularTypescript {
         console.log("Angular Started");
     });
 
+    app.controller('ViewController', ['$scope', function($scope) {
+       return new AngularTypescript.controller.Controller($scope);
+    }]);
+
     app.config([
         '$routeProvider',
         function ($routeProvider) {
             $routeProvider.when('/view', {
                 templateUrl: 'views/main.html',
-                controller: 'AngularTypescript.controller.Controller'
+                controller: 'ViewController'
             }).otherwise({
                     redirectTo: '/view'
                 });
@@ -29,7 +33,6 @@ module AngularTypescript {
 
     $(document).ready(function () {
         console.log("Document Ready");
-
     });
 }
 

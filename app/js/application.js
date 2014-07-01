@@ -2,7 +2,9 @@ var AngularTypescript;
 (function (AngularTypescript) {
     (function (controller) {
         var Controller = (function () {
-            function Controller() {
+            function Controller($scope) {
+                this.$scope = $scope;
+                $scope.title = "Example Angular Typescript Application";
                 console.log("Controller");
                 this.grid = this.createGrid();
             }
@@ -62,12 +64,19 @@ var AngularTypescript;
         console.log("Angular Started");
     });
 
+    app.controller('ViewController', [
+        '$scope',
+        function ($scope) {
+            return new AngularTypescript.controller.Controller($scope);
+        }
+    ]);
+
     app.config([
         '$routeProvider',
         function ($routeProvider) {
             $routeProvider.when('/view', {
                 templateUrl: 'views/main.html',
-                controller: 'AngularTypescript.controller.Controller'
+                controller: 'ViewController'
             }).otherwise({
                 redirectTo: '/view'
             });
