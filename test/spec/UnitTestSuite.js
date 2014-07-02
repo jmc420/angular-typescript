@@ -15,7 +15,7 @@ describe('UnitTestSuite', function () {
         });
     }));
 
-    it('should attach a list of awesomeThings to the scope', function () {
+    it('checkTitle', function () {
         var title = "Example Angular Typescript Application";
 
         expect(scope.title).toBe(title);

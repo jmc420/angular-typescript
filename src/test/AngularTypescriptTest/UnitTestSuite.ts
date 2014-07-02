@@ -11,21 +11,21 @@ describe('UnitTestSuite', function () {
     });
 
     // load the controller's module
+
     beforeEach(module('angularTypeScriptExampleApp'));
 
     var viewController, scope;
 
     // Initialize the controller and a mock scope
+
     beforeEach(inject(function ($controller, $rootScope) {
         scope = $rootScope.$new();
         viewController = $controller('ViewController', {
             $scope: scope
         });
-
-
     }));
 
-    it('should attach a list of awesomeThings to the scope', function () {
+    it('checkTitle', function () {
         var title = "Example Angular Typescript Application";
 
         expect(scope.title).toBe(title);

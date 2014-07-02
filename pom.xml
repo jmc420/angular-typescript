@@ -35,6 +35,9 @@
                                 <exec executable="npm.cmd">
                                     <arg line="install"/>
                                 </exec>
+                                <exec executable="${nodePath}/webdriver-manager.cmd">
+                                    <arg line="update"/>
+                                </exec>
                             </tasks>
                         </configuration>
                         <goals>
@@ -63,17 +66,23 @@
                         <phase>compile</phase>
                         <configuration>
                             <tasks>
-                                <exec executable="${nodePath}//tsc.cmd">
+                                <exec executable="${nodePath}/tsc.cmd">
                                     <arg line="${basedir}/src/main/AngularTypescript/Application.ts"/>
                                     <arg line="--target ES5"/>
                                     <arg line="--removeComments"/>
                                     <arg line="--out ${basedir}/app/js/application.js"/>
                                 </exec>
-                                <exec executable="${nodePath}//tsc.cmd">
+                                <exec executable="${nodePath}/tsc.cmd">
                                     <arg line="${basedir}/src/test/AngularTypescriptTest/UnitTestSuite.ts"/>
                                     <arg line="--target ES5"/>
                                     <arg line="--removeComments"/>
                                     <arg line="--out ${basedir}/test/spec/UnitTestSuite.js"/>
+                                </exec>
+                                <exec executable="${nodePath}/tsc.cmd">
+                                    <arg line="${basedir}/src/test/AngularTypescriptTest/EndToEndTestSuite.ts"/>
+                                    <arg line="--target ES5"/>
+                                    <arg line="--removeComments"/>
+                                    <arg line="--out ${basedir}/test/spec/EndToEndTestSuite.js"/>
                                 </exec>
                             </tasks>
                         </configuration>
@@ -103,6 +112,47 @@
                                 <exec executable="${nodePath}/karma.cmd">
                                     <arg line="start karma.conf.js"/>
                                 </exec>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>pre-integration-test</id>
+                        <phase>pre-integration-test</phase>
+                        <configuration>
+                            <tasks>
+                                <exec executable="${nodePath}/webdriver-manager.cmd" spawn="true">
+                                    <arg value="start"/>
+                                </exec>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>integration-test</id>
+                        <phase>integration-test</phase>
+                        <configuration>
+                            <tasks>
+                                <exec executable="${nodePath}/protractor.cmd">
+                                    <arg value="protractor.conf.js"/>
+                                </exec>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>post-integration-test</id>
+                        <phase>post-integration-test</phase>
+                        <configuration>
+                            <tasks>
+                                <get src="http://localhost:4444/selenium-server/driver/?cmd=shutDownSeleniumServer"
+                                     dest="${basedir}/target/stop.html"/>
                             </tasks>
                         </configuration>
                         <goals>

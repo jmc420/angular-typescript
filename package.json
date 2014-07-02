@@ -10,8 +10,8 @@
         "karma-cli": "latest",
         "karma-jasmine": "latest",
         "karma-chrome-launcher": "latest",
-        "protractor": "latest"
-
+        "protractor": "latest",
+        "webdriver-manager": "latest"
     },
     "devDependencies": {
     },
