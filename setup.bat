@@ -6,11 +6,14 @@ call npm install -g grunt-cli
 
 call npm install -g bower
 
-call npm install karma-jasmine --save-dev
+call npm install -g karma-jasmine
 
-call npm install karma-chrome-launcher --save-dev
+call npm install -g karma-chrome-launcher
 
 call npm install -g phantomjs
 
+npm install -g protractor
+
+webdriver-manager update
 
 

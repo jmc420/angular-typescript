@@ -28,11 +28,11 @@
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>bower-lib</id>
+                        <id>npm</id>
                         <phase>validate</phase>
                         <configuration>
                             <tasks>
-                                <exec executable="bower.bat">
+                                <exec executable="npm.cmd">
                                     <arg line="install"/>
                                 </exec>
                             </tasks>
@@ -42,11 +42,14 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>bower-definitelyTyped</id>
+                        <id>bower</id>
                         <phase>validate</phase>
                         <configuration>
                             <tasks>
-                                <exec dir="${basedir}/src/lib" executable="bower.bat">
+                                <exec executable="${nodePath}/bower.cmd">
+                                    <arg line="install"/>
+                                </exec>
+                                <exec dir="${basedir}/src/lib" executable="${nodePath}/bower.cmd">
                                     <arg line="install"/>
                                 </exec>
                             </tasks>
@@ -60,13 +63,13 @@
                         <phase>compile</phase>
                         <configuration>
                             <tasks>
-                                <exec executable="tsc.bat">
+                                <exec executable="${nodePath}//tsc.cmd">
                                     <arg line="${basedir}/src/main/AngularTypescript/Application.ts"/>
                                     <arg line="--target ES5"/>
                                     <arg line="--removeComments"/>
                                     <arg line="--out ${basedir}/app/js/application.js"/>
                                 </exec>
-                                <exec executable="tsc.bat">
+                                <exec executable="${nodePath}//tsc.cmd">
                                     <arg line="${basedir}/src/test/AngularTypescriptTest/UnitTestSuite.ts"/>
                                     <arg line="--target ES5"/>
                                     <arg line="--removeComments"/>
@@ -97,7 +100,7 @@
                         <phase>test</phase>
                         <configuration>
                             <tasks>
-                                <exec executable="karma.bat">
+                                <exec executable="${nodePath}/karma.cmd">
                                     <arg line="start karma.conf.js"/>
                                 </exec>
                             </tasks>
@@ -113,13 +116,11 @@
 
     </build>
 
-    <dependencies>
+    <properties>
+        <nodePath>${basedir}/node_modules/.bin</nodePath>
+    </properties>
 
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-server</artifactId>
-            <version>2.42.2</version>
-        </dependency>
+    <dependencies>
 
     </dependencies>
 
