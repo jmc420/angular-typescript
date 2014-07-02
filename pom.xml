@@ -67,10 +67,10 @@
                                     <arg line="--out ${basedir}/app/js/application.js"/>
                                 </exec>
                                 <exec executable="tsc.bat">
-                                    <arg line="${basedir}/src/test/AngularTypescriptTest/TestSuite.ts"/>
+                                    <arg line="${basedir}/src/test/AngularTypescriptTest/UnitTestSuite.ts"/>
                                     <arg line="--target ES5"/>
                                     <arg line="--removeComments"/>
-                                    <arg line="--out ${basedir}/test/spec/TestSuite.js"/>
+                                    <arg line="--out ${basedir}/test/spec/UnitTestSuite.js"/>
                                 </exec>
                             </tasks>
                         </configuration>
@@ -112,6 +112,16 @@
        </plugins>
 
     </build>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>2.42.2</version>
+        </dependency>
+
+    </dependencies>
 
     <!-- ******************************************************************** -->
 

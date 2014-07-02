@@ -1,4 +1,4 @@
-describe('TestSuite', function () {
+describe('UnitTestSuite', function () {
     beforeEach(function () {
         console.log("Mock grid");
         $('<div id="grid"></div>').appendTo('body');

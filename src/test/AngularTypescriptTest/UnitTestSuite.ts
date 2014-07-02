@@ -3,7 +3,7 @@
 ///<reference path='../../lib/DefinitelyTyped/jquery/jquery.d.ts'/>
 ///<reference path='../../lib/DefinitelyTyped/jasmine/jasmine.d.ts'/>
 
-describe('TestSuite', function () {
+describe('UnitTestSuite', function () {
 
     beforeEach(function () {
         console.log("Mock grid")
